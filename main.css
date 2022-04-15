@@ -12,6 +12,7 @@ html,body {
 
 body{
     font-size: 1.6rem;
+
 }
 
 .middle-section, .top-section{
@@ -23,9 +24,6 @@ body{
     margin-top: .5rem;
 }
 
-
-
-
 .villain-box-left, .villain-box-center, .user-input-hero-box{
     width: calc(30% - 8px);
     height:100%;
@@ -34,6 +32,12 @@ body{
     justify-content: center;
     align-items: center;
     margin: 4px;
+
+}
+
+.villain-box-center, .hero-description-box-left{
+    flex-direction: column;
+
 }
 
 .villain-box-left, .villain-box-center{
@@ -62,6 +66,7 @@ body{
     flex: 0 0 calc(80% - 8px);
     border: 2px solid black;
     margin-top: 4px;
+
 }
 
 .hero-description-box-left, .combat-box-center, .victory-or-defeat-box-right{
@@ -94,6 +99,7 @@ li{
     width: 10%;
 }
 
+
 .hero-img{
     max-width: 300px;
     max-height: 300px;
@@ -103,3 +109,4 @@ img{
     max-width: 100%;
     max-height: 100%;
 }
+
