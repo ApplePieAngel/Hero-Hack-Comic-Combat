@@ -6,48 +6,90 @@ html,body {
     padding:0;
     margin:0;
     height:100%;
+    font-size: 62.5%;
     font-family: 'Bangers' ,'Arial'
 }
 
-.hero-section, .villain-section{
+body{
+    font-size: 1.6rem;
+}
+
+.middle-section, .top-section{
     width: 100%;
     height: 40%;
 }
 
-.villain-section {
+.top-section {
     margin-top: 4rem;
 }
 
-.villain-box-left, .villain-box-center, .villain-box-right{
+
+
+
+.villain-box-left, .villain-box-center, .user-input-hero-box{
     width: calc(30% - 8px);
     height:100%;
     float:left;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
     margin: 4px;
 }
 
-.villain-box-right{
-    width: calc(40% - 8px);
+.villain-box-left, .villain-box-center{
+    border: 2px solid black;
 }
 
-.hero-box-left, .hero-box-center, .hero-box-right{
-    width: calc(45% - 4px);
+.user-input-hero-box{
+    width: calc(40% - 8px);
+    flex-direction: column;
+}
+
+.hero-drag-box-comic-font, .hero-drag-box-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-drag-box-comic-font{
+    flex: 0 0 20%;
+    border: 2px solid black;
+    margin-bottom: 4px;
+}
+
+.hero-drag-box-bottom{
+    flex: 0 0 calc(80% - 8px);
+    border: 2px solid black;
+    margin-top: 4px;
+}
+
+.hero-description-box-left, .combat-box-center, .victory-or-defeat-box-right{
+    width: calc(45% - 8px);
     height:100%;
     float:left;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid black;
-    margin: 0 2px;
+    margin: 0 4px;
 }
 
-.hero-box-center{
-    width: calc(35% - 4px);
+.combat-box-center{
+    width: calc(35% - 8px);
 }
 
-.hero-box-right{
-    width: calc(20% - 4px);
+.victory-or-defeat-box-right{
+    width: calc(20% - 8px);
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+li{
+    list-style: none;
+    background-color: aqua;
+    width: 10%;
 }
