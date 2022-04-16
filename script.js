@@ -13,14 +13,70 @@ const Heroes = [
     ['Wildlife Sanctuaries', 'As certain species face extinction, Sanctuaries are made in order to preserve these animals by giving them a safe, protected environment.'],
     ['Scavengers / Decomposers', 'Sometimes seen as a bad omen, scavengers such as vultures and buzzards are generally not wanted around as they feast on dead animals. They are; however, the cleanup crew of the animal kingdom, keeping the landscape clean of rotting carcasses and other waste material.'],
 ];
+
+const VillainsImages = [
+    ['CO2.png'],
+    ['Virus.png'],
+    ['Radiation.png'],
+    ['Poacher.png'],
+    ['carrion.png'],
+];
+
+const HeroImages = [
+    ['Tree.png'],
+    ['vaccine.png'],
+    ['ozone.png'],
+    ['Sanctuary.png'],
+    ['Scavenger.png'],
+];
+
 //0 to 5
 let currentVillain = Math.floor(Math.random() * 5);
 
-// Function to change the content of t2
-function modifyImage() {
+function setHeroAnswers() {
+    let i = 0;
+    document.querySelectorAll('.hero-box').forEach(el =>  {
+        el.src = HeroImages[i];
+        i++;
+      });
+
+
+}
+
+let userClicked = 0;
+
+document.getElementById("hero-one").addEventListener('click', event =>{
+    userClicked = 1;
+});
+
+document.getElementById("hero-two").addEventListener('click', event =>{
+    userClicked = 2;
+});
+
+document.getElementById("hero-three").addEventListener('click', event =>{
+    userClicked = 3;
+});
+
+document.getElementById("hero-four").addEventListener('click', event =>{
+    userClicked = 4;
+});
+
+document.getElementById("hero-five").addEventListener('click', event =>{
+    userClicked = 5;
+});
+
+
+
+
+
+function modifyAnswerImage() {
     document.getElementById("hero-answer").src =
     "https://www.halifaxpubliclibraries.ca/wp-content/uploads/sites/50/2021/12/iStock-1329359483-scaled-e1643634559500.jpg";
     document.getElementById("hero-drag-description").style.display = "none";
+}
+
+function modifyVillainImage(){
+    document.getElementById("villain-image").src = VillainsImages[currentVillain];
 }
 
 function modifyVillainText() {
@@ -29,16 +85,39 @@ function modifyVillainText() {
 }
 
 function modifyHeroText() {
-
-    document.getElementById("hero-name").innerHTML = Heroes[currentVillain][0];
-    document.getElementById("hero-description").innerHTML = Heroes[currentVillain][1];
+    document.getElementById("hero-name").innerHTML = Heroes[userClicked-1][0];
+    document.getElementById("hero-description").innerHTML = Heroes[userClicked-1][1];
+    document.getElementById('combat-image').src = "ezgif.gif";
+    document.getElementById("hero-answer").style.display = "initial";
 }
 
 function clearHeroTextAndAnswer(){
     document.getElementById("hero-name").innerHTML = "";
     document.getElementById("hero-description").innerHTML = "";
     document.getElementById("hero-answer").src = "";
+    document.getElementById("hero-answer").style.display = "none";
+    document.getElementById('combat-image').src = "white.png";
+    document.getElementById("hero-drag-description").style.display = "initial";
 }
+
+function determineVictory(){
+    if ((userClicked - 1) == currentVillain)
+        return true;
+    return false;
+}
+
+function updateVictoryDefeatText(){
+    if (determineVictory())
+        document.getElementById("victory-defeat-prompt").innerHTML = `${Heroes[userClicked-1][0]} has defeated ${Villains[currentVillain][0]}`;
+    else{
+        document.getElementById("victory-defeat-prompt").innerHTML = `${Heroes[userClicked-1][0]} has been defeated by ${Villains[currentVillain][0]}. Oh no! Who will defeat ${Villains[currentVillain][0]} now? Restart?`;
+    }
+}
+
+function clearVictoryDefeatText(){
+    document.getElementById("victory-defeat-prompt").innerHTML = "";
+}
+
 
 function reroll(){
     let prevVillain = currentVillain;
@@ -46,16 +125,19 @@ function reroll(){
         currentVillain = Math.floor(Math.random() * 5);
     }
     modifyVillainText();
+    modifyVillainImage();
+    clearVictoryDefeatText();
 }
 
-  
-  // Add event listener to table
-  const divs = document.querySelectorAll('.hero-img');
+const divs = document.querySelectorAll('.hero-img');
 
-  divs.forEach(el => el.addEventListener('click', event => {
-    modifyImage();
+divs.forEach(el => el.addEventListener('click', event => {
+    modifyAnswerImage();
     modifyHeroText();
-  }));
+    updateVictoryDefeatText();
+}));
+
+  
 
   document.querySelector(".victory-or-defeat-box-right").addEventListener('click', function(){
     clearHeroTextAndAnswer();
@@ -64,7 +146,10 @@ function reroll(){
 
 
 function main(){
+    clearHeroTextAndAnswer()
     modifyVillainText();
+    modifyVillainImage();
+    setHeroAnswers();
 }
 
 main();

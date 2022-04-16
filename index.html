@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Comic Combat</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,12 +11,17 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
+    <section class="title-section">
+        <h1>Comic Combat!</h1>
+        <p>Not all heroes come with capes. And not all villains are humans. Pick the right hero to defeat the villain!</p>
+    </section>
     <section class="top-section">
         <div class="villain-box-left">
-            <img src="green-block-300.jpg" alt="Villain-Image" class="villain-image">
+
+            <img src="" alt="Villain-Image" id="villain-image">
         </div>
         <div class="villain-box-center">
-            <p id="villain-name">Insert villain name</p>
+            <p id="villain-name"></p>
             <p id="villain-description">Insert villain descriptor here.</p>
         </div>
         <div class="user-input-hero-box">
@@ -24,7 +29,7 @@
                 <p class="hero-introduction">But here comes...</p>
             </div>
             <div class="hero-drag-box-bottom">
-                <p id="hero-drag-description">Drag the right hero here to defeat the villain!</p>
+                <p id="hero-drag-description">Click the right hero to defeat the villain!</p>
                 <div id="hero-image-container">
                     <img id="hero-answer" src=""></img>
                 </div>
@@ -37,22 +42,23 @@
             <p id="hero-description"></p>
         </div>
         <div class="combat-box-center">
-            <img src="" alt="Hero-and-Villain-Fighting" class="combat-image">
+            <img src="white.png" alt="Hero-and-Villain-Fighting" id="combat-image">
         </div>
         <div class="victory-or-defeat-box-right">
-            <p class="victory-defeat-prompt"></p>
+            <p id="victory-defeat-prompt"></p>
+            <p class="reset-button">Click for a new villain!</p> 
         </div>
     </section>
 
     <section class="select-hero">
         <ul>
-            <li class="hero-img hero-one">
-                <img src="" alt="Hero-one"/>
+            <li class="hero-img" id="hero-one">
+                <img class="hero-box" src="" alt="Hero-one"/>
             </li>
-            <li class="hero-img hero-two"><img src="green-block-300.jpg" alt="Hero1-Image"></img></li>
-            <li class="hero-img hero-three"><img src="green-block-300.jpg" alt="Hero2-Image"></img></li>
-            <li class="hero-img hero-four"><img src="green-block-300.jpg" alt="Hero3-Image"></img></li>
-            <li class="hero-img hero-five"><img src="green-block-300.jpg" alt="Hero4-Image"></img></li>
+            <li class="hero-img" id="hero-two"><img class="hero-box" src="" alt="Hero1-Image"></img></li>
+            <li class="hero-img" id="hero-three"><img class="hero-box" src="" alt="Hero2-Image"></img></li>
+            <li class="hero-img" id="hero-four"><img class="hero-box" src="" alt="Hero3-Image"></img></li>
+            <li class="hero-img" ><img id="hero-five" class="hero-box" src="" alt="Hero4-Image"></img></li>
         </ul>
     </section>
 
