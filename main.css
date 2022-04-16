@@ -19,6 +19,15 @@ body{
     color: white;
 }
 
+#villain-name{
+    font-size: 4.3rem;
+}
+
+#intro-villain-text{
+    font-size: 2.4rem;
+}
+
+
 .hero-drag-box-comic-font{
     background-color: black;
 }
@@ -50,6 +59,10 @@ body{
 
 }
 
+.villain-box-left{
+    background-color: rgba(0, 0, 0, 0.836);
+}
+
 .villain-box-center, .hero-description-box-left{
     flex-direction: column;
 
@@ -57,7 +70,7 @@ body{
 
 
 
-.villain-box-left, .villain-box-center{
+.villain-box-left{
     border: 2px solid black;
 }
 
@@ -83,8 +96,27 @@ body{
     flex: 0 0 calc(80% - 8px);
     border: 2px solid black;
     margin-top: 4px;
-
+    overflow: hidden;
 }
+
+.panel-container, .panel-container-top{
+    flex: 0 0 calc(33.33% - 4px);
+    border: 2px solid black;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.849);
+}
+
+.panel-container{
+    margin-top: 4px;
+}
+
+.panel-container p, .panel-container-top p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
 
 .hero-description-box-left, .combat-box-center, .victory-or-defeat-box-right{
     width: calc(45% - 8px);
@@ -95,6 +127,11 @@ body{
     align-items: center;
     border: 2px solid black;
     margin: 0 4px;
+}
+
+
+
+#hero-name, #hero-description{
 }
 
 .combat-box-center{
