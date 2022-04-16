@@ -125,14 +125,16 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    text-align: center;
     margin: 0 4px;
 }
 
-
-
-#hero-name, #hero-description{
+.hero-description-box-left, .combat-box-center{
+    border: 2px solid black;
 }
+
+
+
 
 .combat-box-center{
     width: calc(35% - 8px);
@@ -143,6 +145,30 @@ body{
     flex-direction: column;
 }
 
+.victory-or-defeat-top-box{
+    height: calc(50% - 4px);
+    width: 100%;
+    border: 2px solid black;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.945);
+    margin-bottom: 4px;
+}
+
+#victory-or-defeat-bottom-box{
+    height: 50%;
+    width: 100%;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.945);
+}
+
+.reset-button{
+    font-size: 2.5rem;
+}
+
+
 ul{
     display: flex;
     justify-content: space-around;
@@ -152,6 +178,11 @@ li{
     list-style: none;
 
     width: 10%;
+}
+
+#hero-name{
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 
@@ -169,3 +200,15 @@ img{
 
 }
 
+h1{
+    font-size: 5rem;
+    margin-bottom: 10px;
+}
+
+.title-section p{
+    font-size: 2.5rem;
+}
+
+#victory-defeat-prompt{
+    font-size: 2rem;
+}

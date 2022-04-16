@@ -70,8 +70,7 @@ document.getElementById("hero-five").addEventListener('click', event =>{
 
 
 function modifyAnswerImage() {
-    document.getElementById("hero-answer").src =
-    "https://www.halifaxpubliclibraries.ca/wp-content/uploads/sites/50/2021/12/iStock-1329359483-scaled-e1643634559500.jpg";
+    document.getElementById("hero-answer").src = HeroImages[userClicked-1];
     document.getElementById("hero-drag-description").style.display = "none";
 }
 
@@ -82,12 +81,15 @@ function modifyVillainImage(){
 function modifyVillainText() {
     document.getElementById("villain-name").innerHTML = Villains[currentVillain][0];
     document.getElementById("villain-description").innerHTML = Villains[currentVillain][1];
+    document.getElementById("villain-name").style.color= "red";
 }
 
 function modifyHeroText() {
     document.getElementById("hero-name").innerHTML = Heroes[userClicked-1][0];
+    document.getElementById("hero-name").style.color = "orange";
     document.getElementById("hero-description").innerHTML = Heroes[userClicked-1][1];
     document.getElementById('combat-image').src = "ezgif.gif";
+    document.getElementById('running-fast-image').src = "3frame.gif";
     document.getElementById("hero-answer").style.display = "initial";
 }
 
@@ -97,6 +99,7 @@ function clearHeroTextAndAnswer(){
     document.getElementById("hero-answer").src = "";
     document.getElementById("hero-answer").style.display = "none";
     document.getElementById('combat-image').src = "white.png";
+    document.getElementById('running-fast-image').src = "white.png";
     document.getElementById("hero-drag-description").style.display = "initial";
 }
 
@@ -107,10 +110,13 @@ function determineVictory(){
 }
 
 function updateVictoryDefeatText(){
-    if (determineVictory())
-        document.getElementById("victory-defeat-prompt").innerHTML = `${Heroes[userClicked-1][0]} has defeated ${Villains[currentVillain][0]}`;
+    if (determineVictory()){
+        document.getElementById("victory-defeat-prompt").innerHTML = `${Heroes[userClicked-1][0]} has saved the day against ${Villains[currentVillain][0]}`;
+        document.getElementById("victory-defeat-prompt").style.color= "#8DFD6C";
+    }
     else{
-        document.getElementById("victory-defeat-prompt").innerHTML = `${Heroes[userClicked-1][0]} has been defeated by ${Villains[currentVillain][0]}. Oh no! Who will defeat ${Villains[currentVillain][0]} now? Restart?`;
+        document.getElementById("victory-defeat-prompt").innerHTML = `${Heroes[userClicked-1][0]} wasn't a good hero to beat ${Villains[currentVillain][0]}. Oh no! Who will defeat ${Villains[currentVillain][0]} now?`;
+        document.getElementById("victory-defeat-prompt").style.color="red";
     }
 }
 
@@ -139,7 +145,7 @@ divs.forEach(el => el.addEventListener('click', event => {
 
   
 
-  document.querySelector(".victory-or-defeat-box-right").addEventListener('click', function(){
+  document.querySelector("#victory-or-defeat-bottom-box").addEventListener('click', function(){
     clearHeroTextAndAnswer();
     reroll();
   });
